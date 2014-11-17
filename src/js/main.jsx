@@ -1,6 +1,8 @@
 var React = require('react');
 
+var Application = require('./views/application.jsx');
+
 React.render(
-  <div id="fooasdfbar" />,
+  <Application />,
   document.getElementById('application')
 );
