@@ -1,8 +1,8 @@
 var React = require('react');
 
-var Application = require('./views/application.jsx');
+var Overview = require('./views/overview.jsx');
 
 React.render(
-  <Application />,
+  <Overview />,
   document.getElementById('application')
 );

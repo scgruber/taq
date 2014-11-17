@@ -43,8 +43,26 @@ var NodeStore = _.assign({}, EventEmitter.prototype, {
     return nodes[id];
   },
 
-  getAll: function() {
+  getAsObject: function() {
     return nodes;
+  },
+
+  getAsArray: function(limit) {
+    nodesArray = _.pairs(nodes).map(function(kv) {
+      var [id, data] = kv;
+      return {
+        id: parseInt(id),
+        title: data.title,
+        author: data.author,
+        content: data.content
+      }
+    });
+
+    if (limit && (limit > 0)) {
+      return _.first(nodesArray, limit);
+    } else {
+      return nodesArray;
+    }
   }
 });
 
