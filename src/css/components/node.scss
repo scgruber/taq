@@ -1,0 +1,21 @@
+.node {
+  margin-bottom: 2rem;
+  width: 100%;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  > header {
+    background-color: #555;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: #eee; 
+  }
+
+  > .content {
+    background-color: #ccc;
+    padding: 0.5rem;
+    color: #111;
+  }
+}

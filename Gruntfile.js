@@ -22,6 +22,16 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      css: {
+        src: ['src/css/main.scss'],
+        dest: 'dist/style.css'
+      }
+    },
+
     watch: {
       index: {
         files: ['src/index.html'],
@@ -30,6 +40,10 @@ module.exports = function(grunt) {
       jsx: {
         files: ['src/js/**/*.jsx'],
         tasks: ['browserify']
+      },
+      scss: {
+        files: ['src/css/**/*.scss'],
+        tasks: ['sass']
       }
     },
 
@@ -47,7 +61,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-sass');
 
-  grunt.registerTask('build', ['copy', 'browserify'])
+  grunt.registerTask('build', ['copy', 'browserify', 'sass'])
   grunt.registerTask('run', ['connect', 'build', 'watch'])
 };

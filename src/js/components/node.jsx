@@ -9,11 +9,11 @@ var Node = React.createClass({
 
   render: function() {
     return (
-      <article>
+      <article className="node">
         <header>
           { this.props.title + ' - ' + this.props.author }
         </header>
-        <div>
+        <div className="content">
           { this.props.content }
         </div>
       </article>
