@@ -1,47 +1,27 @@
+var _ = require('lodash');
 var React = require('react');
 
 var Node = require('../components/node.jsx');
+var NodeStore = require('../stores/node_store.jsx');
 
 var NodesList = React.createClass({
   getInitialState: function() {
     return {
-      nodes: [
-        {
-          id: 0,
-          title: 'Fooasdfbar',
-          author: 'Barasdffoo',
-          content: 'Lorem ipsum dolor sit amet.'
-        },
-        {
-          id: 1,
-          title: 'FizzBuzz',
-          author: 'Baz',
-          content: 'Lorem ipsum dolor sit amet.'
-        },
-        {
-          id: 2,
-          title: 'DoReMi',
-          author: 'FaSoLaTiDo',
-          content: 'Lorem ipsum dolor sit amet.'
-        },
-        {
-          id: 3,
-          title: 'Alpha',
-          author: 'Omega',
-          content: 'Lorem ipsum dolor sit amet.'
-        }
-      ]
+      nodes: NodeStore.getAll()
     }
   },
 
   render: function() {
     return (
       <div>
-        { this.state.nodes.map(function(n) {
-          return  <Node key     = { n.id }
-                        title   = { n.title } 
-                        author  = { n.author }
-                        content = { n.content } />
+        { _.pairs(this.state.nodes).map(function(node) {
+          var [id, data] = node;
+          return (
+            <Node key     = { id }
+                  title   = { data.title } 
+                  author  = { data.author }
+                  content = { data.content } />
+          );
         }) }
       </div>
     );
