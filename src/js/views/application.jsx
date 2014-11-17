@@ -1,6 +1,6 @@
 var React = require('react');
 
-var NodesList = require('./nodeslist.jsx');
+var NodesList = require('./nodes_list.jsx');
 
 var Application = React.createClass({
   render: function() {
